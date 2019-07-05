@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Button from './components/Button';
 import Input from './components/Input';
 import Table from './components/Table';
-import './App.css';
 
 function App ({ data }) {
   const [item, setItem] = useState(''); // initial value is an empty string
@@ -34,9 +33,12 @@ function App ({ data }) {
 
   return (
     <div style={{maxWidth: '1024px', margin: 'auto'}}>
+      <h1 style={{textAlign: 'center'}}>To-do list</h1>
+      <br/><hr/><br/><br/>
       <Input title="Item" inputValue={item} onChangeFunc={updateItem} />
       <Input title="Due Date" inputValue={dueDate} onChangeFunc={updateDueDate}/>
       <Button name="Submit" onClickFunc={updateTodoList} />
+      <br/><br/>
       {todoList && todoList.length > 0 ? <Table items={todoList} columns={[{key: 'item', label: 'To-Do Item'},{key: 'dueDate', label: 'Due Date'}]}/> : null}
     </div>
   );
