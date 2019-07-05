@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Button from './components/Button';
+import Input from './components/Input';
+import Table from './components/Table';
 import './App.css';
 
-function App() {
+function App () {
+  const [item, setItem] = useState(''); // initial value is an empty string
+  const [dueDate, setDueDate] = useState('');
+  const intialTodoString = sessionStorage.getItem('todoList');
+  const intialTodo = JSON.parse(intialTodoString);
+  const [todoList = [], setTodoList] = useState(intialTodo);
+
+  // Updates the to-do list item
+  const updateItem = event => {
+    setItem(event.target.value)
+  }
+
+  // Updates the to-do list item's due date
+  const updateDueDate = event => {
+    setDueDate(event.target.value)
+  }
+
+  const updateTodoList = event => {
+    const todo = {
+      item: item,
+      dueDate: dueDate
+    };
+    const newTodoList = todoList ? todoList.slice() : [];
+    newTodoList.push(todo);
+    setTodoList(newTodoList);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{maxWidth: '1024px', margin: 'auto'}}>
+      <Input title="Item" inputValue={item} onChangeFunc={updateItem} />
+      <Input title="Due Date" inputValue={dueDate} onChangeFunc={updateDueDate}/>
+      <Button name="Submit" onClickFunc={updateTodoList} />
+      {todoList && todoList.length > 0 ? <Table items={todoList} columns={[{key: 'item', label: 'To-Do Item'},{key: 'dueDate', label: 'Due Date'}]}/> : null}
     </div>
   );
 }
