@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './Input.scss';
+import './Input.scss';
 
 const Input = ({ title, inputValue, onChangeFunc }) => {
 
   return (
     <>
-      <label className={css.wrapper}>
-        {title ? <span className={css.title}>{title}</span> : null}
-        <input type="text" value={inputValue} onChange={onChangeFunc} className={css.input}/>
+      <label className="wrapper">
+        {title ? <span className="title">{title}</span> : null}
+        <input type="text" value={inputValue} onChange={onChangeFunc} className="input"/>
       </label>
     </>
   )

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './Table.scss';
+import './Table.scss';
 
 const Table = ({ items, columns }) => {
 
   return (
-    <div className={css.container}>
-      <table className={css.wrapper}>
+    <div className="container">
+      <table className="wrapper">
         <thead>
           <tr>
             {columns.map(col => (
@@ -15,15 +15,13 @@ const Table = ({ items, columns }) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {items.map(item => (
-              <tr>
-                {columns.map(col =>
-                  <td>{item[col.key]}</td>
-                )}
-              </tr>
-            ))}
-          </tr>
+          {items.map((item, i) => (
+            <tr key={'tr' + i}>
+              {columns.map(col =>
+                <td key={'td' + col.key}>{item[col.key]}</td>
+              )}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

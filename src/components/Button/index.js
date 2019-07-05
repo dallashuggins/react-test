@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './Button.scss';
+import './Button.scss';
 
 const Button = ({ name, onClickFunc }) => {
 
   return (
     <>
-      <button className={css.button} onClick={onClickFunc}>{name}</button>
+      <button className="button" onClick={onClickFunc}>{name}</button>
     </>
   )
 }

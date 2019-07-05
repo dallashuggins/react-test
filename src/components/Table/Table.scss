@@ -1,0 +1,39 @@
+
+table {
+  width: 100%;
+  border: 1px black solid;
+}
+
+tr {
+  display: flex;
+}
+
+td, th {
+  flex: 1;
+  overflow: hidden;
+  &:first-child {
+    padding-left: 2rem
+  }
+  &:last-child {
+    padding-right: 2rem
+  }
+}
+
+th {
+  font-weight: bold;
+  padding: 1rem;
+}
+
+td {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  padding: 1rem;
+}
+
+tbody, thead {
+  overflow-y: auto;
+  display: block;
+  text-align: left;
+  border: 1px black solid;
+}
+  
