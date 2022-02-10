@@ -6,7 +6,7 @@
   "author": "Dallas <dallas.a.huggins@gmail.com>",
   "repository": "git@github.com:dallashuggins/react-test.git",
   "dependencies": {
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
